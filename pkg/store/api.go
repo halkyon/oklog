@@ -465,7 +465,7 @@ func (a *API) handleDCSQuery(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	lr := log.DCSReader(qp)
+	lr := log.NewDCSReader(qp)
 
 	_, err := io.Copy(w, lr)
 	if err != nil {

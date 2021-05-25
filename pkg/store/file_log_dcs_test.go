@@ -153,7 +153,7 @@ func Test_DCSReader_OverlapTimeframe(t *testing.T) {
 		q.From.Parse("2021-05-12T07:15:36+12:00")
 		q.To.Parse(time.Now().Format(time.RFC3339))
 
-		r := dcslog.DCSReader(q)
+		r := dcslog.NewDCSReader(q)
 
 		b, err := io.ReadAll(r)
 		if err != nil {
@@ -225,7 +225,7 @@ func Test_DCSReader_DoesntOverlapTimeframe(t *testing.T) {
 		q.From.Parse("2021-05-19T07:15:36+12:00")
 		q.To.Parse(time.Now().Format(time.RFC3339))
 
-		r := dcslog.DCSReader(q)
+		r := dcslog.NewDCSReader(q)
 
 		b, err := io.ReadAll(r)
 		if err != nil {
